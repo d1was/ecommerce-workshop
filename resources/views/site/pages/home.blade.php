@@ -2,6 +2,8 @@
 
 @section('content')
     <header class="relative  " style="min-height: 70vh">
+<h1>{{ $pageName }}</h1>
+
         <div class="hero-bg absolute w-full h-full top-0 z-0 bg-purple-500">
         </div>
         <div class="hero-content flex justify-center items-center z-10 w-full h-full absolute ">

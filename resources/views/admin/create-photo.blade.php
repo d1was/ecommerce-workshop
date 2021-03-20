@@ -6,7 +6,10 @@
     @endforeach
 @endif
 
-@if()
+@if(session()->has('successMessage'))
+    <div class="">{{ session()->get('successMessage') }}</div>
+@endif
+
 <form action="/photo/store" method="post" enctype="multipart/form-data">
 @csrf
 <label for="">Product ID</label>

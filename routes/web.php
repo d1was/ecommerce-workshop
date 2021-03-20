@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'site.pages.home')->name('home');
+Route::get('/',[HomeController::class, 'index']);
+
+//Phoro Routes
+Route::get("/photo/create", [PhotoController::class, 'create']);
+Route::post("/photo/store", [PhotoController::class, 'store']);
+
+// Route::view('/', 'site.pages.home')->name('home');
 Route::view('/photo/show', 'site.pages.show-photo');
 Route::view('/cart', 'site.pages.cart-summary');
 Route::view('/panel/downloads', 'site.pages.panel.downloads');
