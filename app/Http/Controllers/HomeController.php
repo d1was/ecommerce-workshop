@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view ('site.pages.home')->with(['pageName' => 'Home Page']);
+        $photos = \App\Models\Photo::all();
+        return view ('site.pages.home')->with(['photos' => $photos]);
     }
 }

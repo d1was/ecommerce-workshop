@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'index']);
 
-//Phoro Routes
+//Photo Routes
 Route::get("/photo/create", [PhotoController::class, 'create']);
 Route::post("/photo/store", [PhotoController::class, 'store']);
+
+Route::get('/photo/{id}', [PhotoController::class, 'show']);
+
+//cart routes
+Route::post('/cart/save', [CartController::class, 'save']);
 
 // Route::view('/', 'site.pages.home')->name('home');
 Route::view('/photo/show', 'site.pages.show-photo');

@@ -24,4 +24,15 @@ class PhotoController extends Controller
     {
         return view('admin.create-photo');
     }
+
+    public function show(Request $request)
+    {
+        $photo = \App\Models\Photo::where('idx', $request->id)->first();
+        
+        if($photo == null){
+            return abort(404);
+            // return "Product Not Found";
+        }
+        return view('site.pages.show-photo')->with(['photo' => $photo]);
+    }
 }

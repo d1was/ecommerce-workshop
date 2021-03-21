@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Photo extends Model
+class PhotoVariation extends Model
 {
     use HasFactory;
-
-    public function variations()
+    
+    public function photo()
     {
-        return $this->hasMany(PhotoVariation::class);
+        return @$this->belongsTo(Photo::class);
     }
 }

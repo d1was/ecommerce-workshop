@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Photo extends Model
+class Cart extends Model
 {
     use HasFactory;
 
-    public function variations()
+    public function photoVariations()
     {
-        return $this->hasMany(PhotoVariation::class);
+        return $this->belongsToMany(PhotoVariation::class, 'cart_photo');
     }
 }
