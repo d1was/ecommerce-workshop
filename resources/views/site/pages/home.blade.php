@@ -2,6 +2,7 @@
 
 @section('content')
     <header class="relative  " style="min-height: 70vh">
+
         <div class="hero-bg absolute w-full h-full top-0 z-0 bg-purple-500">
         </div>
         <div class="hero-content flex justify-center items-center z-10 w-full h-full absolute ">
@@ -22,16 +23,13 @@
             </h3>
             <div class="photo-columns flex">
                 <ul class="image-lists px-2 pt-12 w-1/3">
-                    <li class="long p-2"><img class="w-full object-cover" src="https://images.pexels.com/photos/2703463/pexels-photo-2703463.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" /> </li>
-                    <li class="long p-2"><img class="w-full  object-cover" src="https://images.pexels.com/photos/4580532/pexels-photo-4580532.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" /> </li>
-                </ul>
-                <ul class="image-lists px-2 pt-12 w-1/3">
-                    <li class="long p-2"><img class="w-full object-cover" src="https://images.pexels.com/photos/1517358/pexels-photo-1517358.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" /> </li>
-                    <li class="long p-2"><img class="w-full  object-cover" src="https://images.pexels.com/photos/4580532/pexels-photo-4580532.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" /> </li>
-                </ul>
-                <ul class="image-lists px-2 pt-12 w-1/3">
-                    <li class="long p-2"><img class="w-full object-cover" src="https://images.pexels.com/photos/1975781/pexels-photo-1975781.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" /> </li>
-                    <li class="long p-2"><img class="w-full  object-cover" src="https://images.pexels.com/photos/4580532/pexels-photo-4580532.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" /> </li>
+                    @foreach($photos as $photo)
+                    <li class="long p-2">
+                    <a href="/photo/{{ $photo->idx }} ">
+                    <img class="w-full  object-cover" src="{{ asset('storage/' . $photo->file_path) }}" alt="" /> 
+                    </a>
+                    </li>
+                    @endforeach
                 </ul>
 
 
