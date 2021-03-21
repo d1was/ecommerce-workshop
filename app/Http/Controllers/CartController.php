@@ -6,16 +6,22 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function summary()
+    {
+        return view('site.pages.cart-summary');
+    }
+
     public function save(Request $request)
     {
         $request->validate([
             'product_variation_id' => 'required'
         ]);
 
-        $cart = App\Models\Cart::firstOrCreate([
+        $cart = \App\Models\Cart::firstOrCreate([
             'session_id' => session()->getId()
         ]);
 
-        $cart->photoVariations()->sync($request->photo_variation_id);
+        $cart->photoVariations()->syncWithoutDetaching($request->product_variation_id);
+        return back()->with(['successMessage' => 'Product has been added to cart successfully.']);
     }
 }

@@ -17,51 +17,33 @@
                 </thead>
 
                 <tbody>
+                @foreach($cart->photoVariations as $variation)
                     <tr class="border-b-2">
                         <td class="py-4 flex items-center">
                             <figure class="w-24 h-24">
-                                <img class="w-full h-full object-cover" src="https://images.pexels.com/photos/1975781/pexels-photo-1975781.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                                <img class="w-full h-full object-cover" src="{{ asset('storage/' . $variation->photo->file_path) }}" alt="">
                             </figure>
-                            <h4 class="text-md text-gray-800 font-light ml-4">#TAS1212</h4>
+                            <h4 class="text-md text-gray-800 font-light ml-4">#{{ $variation->photo->idx }}</h4>
                         </td>
                         <td class="py-4 text-gray-400 font-light">
-                            Web
+                           {{ $variation->image_type }}
                         </td>
                         <td class="py-4 text-gray-400 font-light">
-                            1200 x 1600
+                        {{ $variation->dimension }}
                         </td>
                         <td class="py-4  text-gray-600 font-light">
-                             RS. 1600
+                             RS. {{ $variation->price /100 }}
                         </td>
                         <td class="py-4 font-light">
                             <button class="px-2 py-1 bg-red-500 text-white rounded-sm">X</button>
                         </td>
                     </tr>
-                        <tr class="border-b-2">
-                        <td class="py-4 flex items-center">
-                            <figure class="w-24 h-24">
-                                <img class="w-full h-full object-cover" src="https://images.pexels.com/photos/1975781/pexels-photo-1975781.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-                            </figure>
-                            <h4 class="text-md text-gray-800 ml-4 font-light">#TAS1212</h4>
-                        </td>
-                        <td class="py-4 text-gray-400 font-light">
-                            Web
-                        </td>
-                        <td class="py-4 text-gray-400 font-light">
-                            1200 x 1600
-                        </td>
-                        <td class="py-4 font-light text-gray-600">
-                             RS. 1600
-                        </td>
-                        <td class="py-4">
-                            <button class="px-2 py-1 bg-red-500 text-white rounded-sm">X</button>
-                        </td>
-                    </tr>
+               @endforeach
                     <tr>
                         <td  class="py-6"></td>
                         <td  class="py-6"></td>
                         <td  class="py-6 text-center font-light">Total</td>
-                        <td  class="py-6 text-blue-600 font-light text-xl">Rs. 2000</td>
+                        <td  class="py-6 text-blue-600 font-light text-xl">Rs. {{ $cart->totalAmount() /100 }}</td>
                     </tr>
                 </tbody>
 

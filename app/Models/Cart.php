@@ -9,6 +9,18 @@ class Cart extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['session_id'];
+
+    public function total()
+    {
+        return $this->photoVariations->count();
+    }
+
+    public function totalAmount()
+    {
+        return $this->photoVariations->sum('price');
+    }
+
     public function photoVariations()
     {
         return $this->belongsToMany(PhotoVariation::class, 'cart_photo');
