@@ -2,7 +2,8 @@
 
 @section('content')
 
-
+    
+    <div class="container mx-auto py-16">
     <div class="py-16 px-4 bg-gray-100 min-h-screen">
         <h1 class="text-3xl text-black font-light uppercase text-center">Your Cart</h1>
         <div class="w-1/2 mx-auto py-12 mt-8 px-12 bg-white shadow-lg rounded-lg">
@@ -35,7 +36,11 @@
                              RS. {{ $variation->price /100 }}
                         </td>
                         <td class="py-4 font-light">
+                        <form action="/cart/item/{{ $variation->id }}" method="post">
+                            @method('DELETE')
+                            @csrf
                             <button class="px-2 py-1 bg-red-500 text-white rounded-sm">X</button>
+                        </form>
                         </td>
                     </tr>
                @endforeach
@@ -51,9 +56,10 @@
         </div>
 
         <div class="w-1/2 mx-auto pt-8 flex justify-between">
-            <button class="py-2 px-6 bg-blue-500 text-white font-light">Continue Shopping</button>
-            <button class="py-2 px-6 bg-purple-500 text-white font-light">Checkout</button>
+            <a href="/" class="py-2 px-6 bg-blue-500 text-white font-light">Continue Shopping</a>
+            <a href="/checkout" class="py-2 px-6 bg-purple-500 text-white font-light">Checkout</a>
         </div>
+    </div>
     </div>
 
 @endsection

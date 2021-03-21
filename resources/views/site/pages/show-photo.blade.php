@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="container mx-auto py-16">
         <div class="flex px-4">
             <div class="w-1/2">
                 <figure class="p-12 h-1/2">
@@ -51,5 +52,5 @@
                 </div>
             </div>
         </div>
-
+</div>
 @endsection

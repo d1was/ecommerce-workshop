@@ -18,5 +18,6 @@ class CheckoutController extends Controller
         ]);
 
         session()->put('checkout_email', $request->email);
+        return redirect('/payment');
     }
 }

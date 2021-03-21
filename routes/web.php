@@ -29,6 +29,7 @@ Route::get('/photo/{id}', [PhotoController::class, 'show']);
 //cart routes
 Route::post('/cart/save', [CartController::class, 'save']);
 Route::get('/cart/summary', [CartController::class, 'summary']);
+Route::delete('/cart/item/{id}', [CartController::class, 'destroy']);
 
 //checkout Routes
 Route::get('/checkout', [CheckoutController::class, 'index']);

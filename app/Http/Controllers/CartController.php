@@ -24,4 +24,11 @@ class CartController extends Controller
         $cart->photoVariations()->syncWithoutDetaching($request->product_variation_id);
         return back()->with(['successMessage' => 'Product has been added to cart successfully.']);
     }
+
+    public function destroy(Request $request)
+    {
+        $cart = \App\Models\Cart::where('session_id', session()->getId())->first();
+        $cart->photoVariations()->detach($request->id);
+        return back();
+    }
 }
