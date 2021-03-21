@@ -10,4 +10,13 @@ class CheckoutController extends Controller
     {
         return view('site.pages.checkout');
     }
+
+    public function saveEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        session()->put('checkout_email', $request->email);
+    }
 }

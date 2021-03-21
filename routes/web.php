@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,10 @@ Route::get('/cart/summary', [CartController::class, 'summary']);
 
 //checkout Routes
 Route::get('/checkout', [CheckoutController::class, 'index']);
+Route::post('/checkout', [CheckoutController::class, 'saveEmail']);
+
+//Payment Routes
+Route::get('/payment', [PaymentController::class, 'index']);
 
 // Route::view('/', 'site.pages.home')->name('home');
 Route::view('/photo/show', 'site.pages.show-photo');
